@@ -1,0 +1,50 @@
+{
+  "replacing": {
+
+  },
+  "license": "Apache 2.0",
+  "dependencies": {
+
+  },
+  "maintainer": "Opscode, Inc.",
+  "recommendations": {
+
+  },
+  "maintainer_email": "cookbooks@opscode.com",
+  "description": "Installs\/Configures webalizer",
+  "suggestions": {
+
+  },
+  "platforms": {
+    "debian": [
+
+    ],
+    "centos": [
+
+    ],
+    "ubuntu": [
+
+    ],
+    "redhat": [
+
+    ]
+  },
+  "version": "0.1.0",
+  "conflicting": {
+
+  },
+  "recipes": {
+    "webalizer": "Main Webalizer configuration",
+    "webalizer": ""
+  },
+  "name": "webalizer",
+  "providing": {
+    "webalizer": [
+
+    ]
+  },
+  "long_description": "= DESCRIPTION:\n\n\n\n= REQUIREMENTS:\n\npackage webalizer\n\n= ATTRIBUTES: \n\n= USAGE:\n\nAs DRY as possible ;-)\n\nwebalizer \"your.example.com\" do\n  server_name \"stats.example.com\"\nend\n\nsearches for a access log file in\n\n#{node[:apache][:log_dir]}\/your.example.com-access.log\n\nund puts the webalizer results (\/etc\/cron.daily\/00-weablizer must be run)\n\nin\n\n\/var\/www\/usage\/your.example.com\n\naccessable through\n\nhttp:\/\/stats.example.com\/your.example.com\n\noptions are\n\nwebalizer \"your.example.com\" do\n  server_name \"stats.example.com\"     # custom server name\n  conf_template \"webalizer.conf.erb\"  # custom webalizer config\n  site_template  \"webalizer.site.erb\"   #custom webalizer apache file\n  cron_schedule :daily  # node[:webalizer][:cron_base_prefix]}#{params[:cron_schedule].to_s must be a cron directory\n  log_type :clf # :clf :ftp or :squid\n  cookbook \"webalizer\" were the templates reside\nend\n\n= LICENSE and AUTHOR:\n\nAuthor:: Edmund Haselwanter (<edmund@haselwanter.com>)\nCopyright:: 2009, Opscode, Inc\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http:\/\/www.apache.org\/licenses\/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.",
+  "attributes": {
+
+  }
+}

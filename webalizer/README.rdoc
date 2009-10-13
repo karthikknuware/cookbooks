@@ -1,0 +1,59 @@
+= DESCRIPTION:
+
+
+
+= REQUIREMENTS:
+
+package webalizer
+
+= ATTRIBUTES: 
+
+= USAGE:
+
+As DRY as possible ;-)
+
+webalizer "your.example.com" do
+  server_name "stats.example.com"
+end
+
+searches for a access log file in
+
+#{node[:apache][:log_dir]}/your.example.com-access.log
+
+und puts the webalizer results (/etc/cron.daily/00-weablizer must be run)
+
+in
+
+/var/www/usage/your.example.com
+
+accessable through
+
+http://stats.example.com/your.example.com
+
+options are
+
+webalizer "your.example.com" do
+  server_name "stats.example.com"     # custom server name
+  conf_template "webalizer.conf.erb"  # custom webalizer config
+  site_template  "webalizer.site.erb"   #custom webalizer apache file
+  cron_schedule :daily  # node[:webalizer][:cron_base_prefix]}#{params[:cron_schedule].to_s must be a cron directory
+  log_type :clf # :clf :ftp or :squid
+  cookbook "webalizer" were the templates reside
+end
+
+= LICENSE and AUTHOR:
+
+Author:: Edmund Haselwanter (<edmund@haselwanter.com>)
+Copyright:: 2009, Opscode, Inc
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

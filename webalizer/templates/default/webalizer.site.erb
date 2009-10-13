@@ -1,0 +1,7 @@
+<VirtualHost *:80>
+
+  include <%= "#{@node[:webalizer][:dir]}/#{@server_name}"%>/*.alias
+
+  ServerName <%= @server_name %>       
+
+</VirtualHost>

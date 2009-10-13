@@ -1,0 +1,7 @@
+Alias /<%= @params[:name] %> <%= @output_dir %>
+
+<Location /<%= @params[:name] %>>
+    Order deny,allow
+    Deny from all
+    Allow from all
+</Location>
